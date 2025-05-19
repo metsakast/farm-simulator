@@ -11,3 +11,4 @@ soils = [Soil(i) for i in range(36)]
 
 selected_item = 0
 money = 1000
+workers = 0

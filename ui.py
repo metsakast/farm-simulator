@@ -38,6 +38,18 @@ def loadUI(screen):
 
         marketplace_buttons.append((item_frame, name))
 
+    worker_button_y = 75 + len(market_prices) * 55
+    worker_button = pygame.Rect(655, worker_button_y, 315, 50)
+    pygame.draw.rect(screen, (160, 150, 100), worker_button)
+    worker_text = text_font.render("Buy Worker 100", True, (220, 220, 220))
+    screen.blit(worker_text, (worker_button.x + 5, worker_button.y + 5))
+    marketplace_buttons.append((worker_button, "Worker"))
+
+    money_text = text_font.render(f"${data.money}", True, (220, 220, 220))
+    workers_count_text = text_font.render(f"Workers: {data.workers}", True, (220, 220, 220))
+    screen.blit(money_text, (655, 600))
+    screen.blit(workers_count_text, (655 + money_text.get_width() + 30, 600))
+
     inventory_frame = pygame.Rect(0, 630, 1000, 370)
     inventory_innerframe = pygame.Rect(25, 655, 950, 320)
     pygame.draw.rect(screen, (50, 50, 40), inventory_frame)

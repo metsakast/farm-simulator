@@ -43,9 +43,15 @@ while running:
                 if inventory_slot.collidepoint(mouse_pos):
                     data.selected_item = index
                     break
-            
+
             for button, name in marketplace_buttons:
                 if button.collidepoint(mouse_pos):
+                    if name == "Worker":
+                        if data.money >= 100:
+                            data.money -= 100
+                            data.workers += 1
+                            purchase.play()
+                        break
                     if len(data.inventory) >= 27: break
                     if data.money >= market_prices[name]:
                         data.money -= market_prices[name]
