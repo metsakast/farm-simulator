@@ -7,7 +7,6 @@ class Item:
         self.quantity = quantity
         self.grow_time = grow_time
 
-        # Set grow_time for crops
         if self.type == "Crop" and self.grow_time is None:
             crop_grow_times = {
                 "Wheat": 10,
@@ -16,7 +15,6 @@ class Item:
             }
             self.grow_time = crop_grow_times.get(self.name, 10)
 
-        # Set image attribute
         if image:
             self.image = image
         else:
